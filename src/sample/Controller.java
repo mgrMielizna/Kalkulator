@@ -1,14 +1,15 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Controller {
     //Kalkulator
 
-    //Double liczba = 0 ;
+    double liczba;
+    double realnyWynik = 0;
 
     @FXML
     private Button dzielenie;
@@ -29,14 +30,51 @@ public class Controller {
     private Button wynik;
 
     @FXML
-    private TextField wyswietlacz;
-    //public static Integer getText(Integer);
+    private Label historia1;
 
     @FXML
-    void przycisniecieKlawisza(ActionEvent event) {
-        if (event.getSource()==kasuj) {
-            wyswietlacz.setText("");
-        }
-        
+    private Label historia2;
+
+    @FXML
+    private Label historia3;
+
+    @FXML
+    private TextField wyswietlacz;
+
+
+    @FXML
+    void przycisniecieKlawiszaDodawanie() {
+        liczba = Double.valueOf(wyswietlacz.getText());
+        realnyWynik += liczba;
+        wyswietlacz.setText("");
+
     }
+
+    @FXML
+    void przycisniecieKlawiszaDzielenie() {
+         liczba = Double.valueOf(wyswietlacz.getText());
+    }
+
+    @FXML
+    void przycisniecieKlawiszaKasuj() {
+        wyswietlacz.setText("");
+    }
+
+    @FXML
+    void przycisniecieKlawiszaMnozenie() {
+
+    }
+
+    @FXML
+    void przycisniecieKlawiszaOdejmowanie() {
+
+    }
+
+    @FXML
+    void przycisniecieKlawiszaWynik() {
+        wyswietlacz.setText(String.valueOf(realnyWynik));
+
+    }
+
+
 }
